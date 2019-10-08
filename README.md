@@ -6,7 +6,7 @@ The data is queried from a sqlite file and an initial data exploration is done i
 
 
 
-
+![alt text][Images/precipitation.png]
 
 
 
