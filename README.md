@@ -6,10 +6,10 @@ The data is queried from a sqlite file and an initial data exploration is done i
 
 
 
-![alt text](https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/precipitation.png)
-![alt text](https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/station-histogram.png)
-![alt text](https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/describe.png)
-![alt text](https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/temperature.png)
+<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/precipitation.png" style="width:40px">
+<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/station-histogram.png" style="width:40px">
+<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/describe.png" style="width:400px">
+<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/temperature.png" style="width:400px">
 
 
 
@@ -18,16 +18,14 @@ The data is queried from a sqlite file and an initial data exploration is done i
 The next part of the project is a Flask API based on the previous queries. Below are the API routes: 
 
 Home page.
-List all routes that are available.
-
-
-
-/api/v1.0/precipitation - returns a JSON list of all precipitation observations from the dataset.
-/api/v1.0/stations - return a JSON list of stations from the dataset.
-/api/v1.0/tobs - returns a JSON list of Temperature Observations (tobs) for the previous year.
-/api/v1.0/<start> and /api/v1.0/<start>/<end> - returns a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start or start-end range.
-When given the start only, calculate TMIN, TAVG, and TMAX for all dates greater than and equal to the start date.
-When given the start and the end date, calculate the TMIN, TAVG, and TMAX for dates between the start and end date inclusive.
+* List all routes that are available.
+* /api/v1.0/precipitation - returns a JSON list of all precipitation observations from the dataset.
+* /api/v1.0/stations - return a JSON list of stations from the dataset.
+* /api/v1.0/tobs - returns a JSON list of Temperature Observations (tobs) for the previous year.
+* /api/v1.0/<start> and /api/v1.0/<start>/<end> - returns a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start or start-end range.
+  
+  * When given the start only, this calculates TMIN, TAVG, and TMAX for all dates greater than and equal to the start date.
+  * When given the start and the end date, this calculate the TMIN, TAVG, and TMAX for dates between the start and end date inclusive.
 
 
 
