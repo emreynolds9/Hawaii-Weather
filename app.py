@@ -10,6 +10,9 @@ from sqlalchemy import create_engine, func
 from dateutil import parser
 from flask import Flask, jsonify
 
+from flask import Flask, jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 #################################################
 # Database Setup
 #################################################
@@ -30,7 +33,8 @@ session = Session(engine)
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 #################################################
 # Flask Routes
@@ -43,9 +47,10 @@ recent_year = session.query(Measurement.date, Measurement.prcp, Measurement.tobs
 
 
 @app.route("/")
-def home():
+def index():
     """List all available api routes."""
-    return (
+    return render_template("index.html")
+
         """
         <h1>Hawai'i Climate Data</h1>
         <h3>This application uses Python and SQLAlchemy to do basic climate analysis and data exploration of
