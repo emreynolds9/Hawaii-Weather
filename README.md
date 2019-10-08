@@ -4,12 +4,7 @@ This project uses Python, MatPlotLib, and SQLAlchemy to do basic climate analysi
 
 The data is queried from a sqlite file and an initial data exploration is done in a [Jupyter Notebook](https://github.com/emreynolds9/Hawaii-Weather/blob/master/SQL%20Alchemy%20Homework.ipynb).
 
-
-
-<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/precipitation.png" style="width:40px">
-<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/station-histogram.png" style="width:40px">
-<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/describe.png" style="width:400px">
-<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/temperature.png" style="width:400px">
+<img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/precipitation.png" style="width:40px"> <img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/station-histogram.png" style="width:40px"> <img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/describe.png" style="width:400px"> <img src="https://github.com/emreynolds9/Hawaii-Weather/blob/master/Images/temperature.png" style="width:400px">
 
 
 
