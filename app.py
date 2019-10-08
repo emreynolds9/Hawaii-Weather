@@ -13,7 +13,8 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///hawaii.sqlite")
+engine = create_engine("sqlite:///hawaii.sqlite",
+connect_args={'check_same_thread': False})
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -47,17 +48,27 @@ def home():
     return (
         """
         <h1>Hawai'i Climate Data</h1>
-        <h2>Available Routes:<h2>
+        <h3>This application uses Python and SQLAlchemy to do basic climate analysis and data exploration of
+        a climate database.</h3>
+        <h2>Available API Routes:</h2>
         <h3><ul>
                 <li><a href="http://127.0.0.1:5000/api/v1.0/precipitation">Precipitation with dates from recent year</a>
                 <li><a href="http://127.0.0.1:5000/api/v1.0/stations">List of all climate measuring stations</a>
                 <li><a href="http://127.0.0.1:5000/api/v1.0/tobs">Temperature Observations with dates from recent year</a>
-                <li>Temperature Statistics between desired date and most reccent date (MM-DD-YYYY format)</a>
-                <br>Enter http://127.0.0.1:5000/api/v1.0/<desired date></br>
-                e.g. http://127.0.0.1:5000/api/v1.0/2014-12-11 will return temperature statistics between 
-                <li>Temperature Statistics between two desired dates (MM-DD-YYYY format)</a>
-                <br>Enter http://127.0.0.1:5000/api/v1.0/<start date>/<end date>
-                <br>e.g. http://127.0.0.1:5000/api/v1.0/2014-12-11/2014-12-18
+                <li>Temperature Statistics between desired date and most reccent date (YYYY-MM-DD format)</a>
+                <ul style="margin-left: 30px">
+                        <li>Enter http://127.0.0.1:5000/api/v1.0/[desired date]
+                        <li>e.g. <a href="http://127.0.0.1:5000/api/v1.0/2014-12-11 target="_blank"">
+                        http://127.0.0.1:5000/api/v1.0/2014-12-11</a> will return temperature statistics
+                        between December 11th, 2014 and the most recent measurement.</p>
+                </ul>
+                <li>Temperature Statistics between two desired dates (YYYY-MM-DD format)</a>
+                <ul style="margin-left: 30px">
+
+                        <li>Enter http://127.0.0.1:5000/api/v1.0/[start date]/[end date]
+                        <li>e.g. <a href="http://127.0.0.1:5000/api/v1.0/2014-12-11/2014-12-18" target="_blank">
+                        http://127.0.0.1:5000/api/v1.0/2014-12-11/2014-12-18</a> will return temperature statistics
+                        between December 11th, 2014 and December 18th, 2014.
                 <h3>""")
 
 
@@ -97,7 +108,7 @@ def tobs():
                 recent_year_tobs.append(row)
                 ignore["prcp"] = prcp
         return jsonify(recent_year_tobs)
-        
+
 
 
 @app.route("/api/v1.0/<start>")
